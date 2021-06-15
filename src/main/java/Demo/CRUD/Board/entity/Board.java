@@ -11,18 +11,25 @@ import javax.persistence.*;
 @Builder
 @Table(name = "board")
 public class Board extends BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long board_id;
+    private Long boardId;
 
     @Column(length = 100, nullable = false)
-    private String board_title;
+    private String boardTitle;
 
     @Column(length = 30, nullable = false)
-    private String board_writer;
+    private String boardWriter;
 
     @Column(length = 1500, nullable = false)
-    private String board_contents;
+    private String boardContents;
 
+    public void changeTitle(String boardTitle){
+        this.boardTitle = boardTitle;
+    }
 
+    public void changeContent(String boardContents){
+        this.boardContents = boardContents;
+    }
 }
