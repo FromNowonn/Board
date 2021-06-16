@@ -31,7 +31,6 @@ public class BoardServiceImpl implements BoardService{
         repository.save(entity);
         return entity.getBoardId();
     }
-
     @Override
     public PageResultDto<BoardDto, Board> getList(PageRequestDto pageRequestDto){
         Pageable pageable = pageRequestDto.getPageable(Sort.by("boardId").descending());
@@ -39,4 +38,5 @@ public class BoardServiceImpl implements BoardService{
         Function<Board, BoardDto> fn = (entity -> entityToDto(entity));
         return new PageResultDto<>(result,fn);
     }
+
 }
