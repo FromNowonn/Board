@@ -16,6 +16,7 @@ public interface BoardService {
                 .build();
         return entity;
     }
+
     default BoardDto entityToDto(Board entity){
         BoardDto dto = BoardDto.builder()
                 .boardId(entity.getBoardId())
