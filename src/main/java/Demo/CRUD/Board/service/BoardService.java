@@ -29,6 +29,5 @@ public interface BoardService {
                 .build();
         return dto;
     }
-
     PageResultDto<BoardDto, Board> getList(PageRequestDto pageRequestDto);
 }
