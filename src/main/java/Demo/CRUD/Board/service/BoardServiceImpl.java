@@ -20,6 +20,7 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 
 public class BoardServiceImpl implements BoardService{
+
     private final BoardRepository repository;
     @Override
     public Long register(BoardDto dto){
@@ -31,6 +32,7 @@ public class BoardServiceImpl implements BoardService{
         repository.save(entity);
         return entity.getBoardId();
     }
+
     @Override
     public PageResultDto<BoardDto, Board> getList(PageRequestDto pageRequestDto){
         Pageable pageable = pageRequestDto.getPageable(Sort.by("boardId").descending());

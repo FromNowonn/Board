@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("Board")
+@RequestMapping("UserBoard")
 @RequiredArgsConstructor
 @Log4j2
+
 public class BoardController {
     private final BoardService service;
     @GetMapping("/")
     public String index(){
-        return "redirect:/templates/Board/list";
+
+        return "redirect:UserBoard/list";
     }
     @GetMapping("list")
     public void list(PageRequestDto pageRequestDto, Model model){

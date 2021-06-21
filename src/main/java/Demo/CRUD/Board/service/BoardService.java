@@ -6,6 +6,7 @@ import Demo.CRUD.Board.dto.PageResultDto;
 import Demo.CRUD.Board.entity.Board;
 
 public interface BoardService {
+
     Long register(BoardDto dto);
     default Board dtoToEntity(BoardDto dto){
         Board entity = Board.builder()

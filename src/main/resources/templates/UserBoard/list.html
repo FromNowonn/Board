@@ -7,9 +7,10 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">boardId</th>
-                <th scope="col">boardTitle</th>
-                <th scope="col">regDate</th>
+                <th scope="col">Title</th>
+                <th scope="col">Writer</th>
+                <th scope="col">Contents</th>
+                <th scope="col">Regdate</th>
 
             </tr>
             </thead>
@@ -19,10 +20,17 @@
                 <th scope="row">[[${dto.boardId}]]</th>
                 <td> [[${dto.boardTitle}]]</td>
                 <td> [[${dto.boardWriter}]]</td>
-                <td> [[${temporals.format(dto.regDate,'yyyy/MM/dd')}]]</td>
+                <td> [[${dto.boardContents}]]</td>
+                <td> [[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
             </tr>
             </tbody>
         </table>
+        <ul class="pagination h-100 justify-content-center align-items-center">
+            <li class="page-item" th:if="${result.prev}">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+
+        </ul>
 
     </th:block>
 </th:block>
