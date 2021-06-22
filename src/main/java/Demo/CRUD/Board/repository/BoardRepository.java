@@ -7,3 +7,5 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 public interface BoardRepository extends JpaRepository<Board, Long>, QuerydslPredicateExecutor<Board> {
 
 }
+
+

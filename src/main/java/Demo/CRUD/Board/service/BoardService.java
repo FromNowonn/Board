@@ -29,5 +29,6 @@ public interface BoardService {
                 .build();
         return dto;
     }
+    BoardDto read(Long boardId);
     PageResultDto<BoardDto, Board> getList(PageRequestDto pageRequestDto);
 }

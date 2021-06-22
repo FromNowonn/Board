@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 @Service
@@ -39,6 +40,12 @@ public class BoardServiceImpl implements BoardService{
         Page<Board> result = repository.findAll(pageable);
         Function<Board, BoardDto> fn = (entity -> entityToDto(entity));
         return new PageResultDto<>(result,fn);
+    }
+
+    @Override
+    public BoardDto read(Long boardId){
+        Optional<Board> result = repository.findById(boardId);
+        return result.isPresent()? entityToDto(result.get()): null;
     }
 
 }
