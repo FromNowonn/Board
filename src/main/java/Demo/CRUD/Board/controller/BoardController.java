@@ -22,7 +22,7 @@ public class BoardController {
     @GetMapping("/")
     public String index(){
 
-        return "redirect:UserBoard/list";
+        return "redirect:vendor/index";
     }
     @GetMapping("list")
     public void list(PageRequestDto pageRequestDto, Model model){
@@ -36,12 +36,23 @@ public class BoardController {
 
     }
 
+    @GetMapping("boardWelcome")
+    public void welcome(){
+        log.info("welcome get");
+    }
+
     @PostMapping("register")
     public String registerPost(BoardDto dto, RedirectAttributes redirectAttributes){
         log.info("dto"+dto);
         Long boardId = service.register(dto);
         redirectAttributes.addFlashAttribute("msg",boardId);
         return "redirect:list";
+    }
+
+    @RequestMapping("static/vendor")
+    @GetMapping("index")
+    public void host(){
+        log.info("first page");
     }
 
 }
