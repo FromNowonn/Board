@@ -50,11 +50,28 @@ public class BoardController {
         return "redirect:list";
     }
 
-    @GetMapping("read")
+    @GetMapping({"read", "modify"})
     public void read(Long boardId, @ModelAttribute("requestDto") PageRequestDto requestDto, Model model){
         log.info("ID : "+boardId);
         BoardDto dto = service.read(boardId);
         model.addAttribute("dto", dto);
+    }
+
+    @PostMapping("remove")
+    public String remove(Long boardId, RedirectAttributes redirectAttributes){
+        log.info("ID : "+boardId);
+        service.remove(boardId);
+        redirectAttributes.addFlashAttribute("msg",boardId);
+        return "redirect:list";
+    }
+    @PostMapping("modify")
+    public String modify(BoardDto dto, @ModelAttribute("requestDto") PageRequestDto requestDto,RedirectAttributes redirectAttributes){
+        log.info("modify in");
+        log.info("dto"+dto);
+        service.modify(dto);
+        redirectAttributes.addFlashAttribute("page",requestDto.getPage());
+        redirectAttributes.addAttribute("boardId",dto.getBoardId());
+        return "redirect:read";
     }
 
 }

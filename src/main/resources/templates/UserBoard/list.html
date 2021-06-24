@@ -20,7 +20,7 @@
             <tr th:each="dto : ${result.dtoList}">
                 <th scope="row">[[${dto.boardId}]]</th>
                 <td>
-                    <a th:href="@{read(boardTitle = ${dto.boardTitle}, page = ${result.page})}">
+                    <a th:href="@{read(boardId = ${dto.boardId}, page = ${result.page})}">
                     [[${dto.boardTitle}]]
                        </a>
                 </td>

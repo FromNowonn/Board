@@ -32,4 +32,5 @@ public class Board extends BaseEntity{
     public void changeContent(String boardContents){
         this.boardContents = boardContents;
     }
+
 }

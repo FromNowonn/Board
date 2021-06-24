@@ -8,6 +8,8 @@ import Demo.CRUD.Board.entity.Board;
 public interface BoardService {
 
     Long register(BoardDto dto);
+    void remove(Long boardId);
+    void modify(BoardDto dto);
     default Board dtoToEntity(BoardDto dto){
         Board entity = Board.builder()
                 .boardId(dto.getBoardId())
@@ -29,6 +31,7 @@ public interface BoardService {
                 .build();
         return dto;
     }
+
     BoardDto read(Long boardId);
     PageResultDto<BoardDto, Board> getList(PageRequestDto pageRequestDto);
 }
