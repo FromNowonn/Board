@@ -20,7 +20,7 @@
             <tr th:each="dto : ${result.dtoList}">
                 <th scope="row">[[${dto.boardId}]]</th>
                 <td>
-                    <a th:href="@{/read(boardId = ${dto.boardId}, page = ${result.page})}">
+                    <a th:href="@{read(boardId = ${dto.boardId}, page = ${result.page})}">
                     [[${dto.boardTitle}]]
                        </a>
                 </td>
@@ -33,7 +33,7 @@
 
         </li>
         <li class="page-item" style="float: left" >
-            <a class="page-link" th:href="@{/register}">도움 요청</a>
+            <a class="page-link" th:href="@{register}">도움 요청</a>
         </li>
         <ul class="pagination h-100 justify-content-center align-items-center">
             <li class="page-item " th:if="${result.prev}">
