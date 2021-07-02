@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/UserBoard")
+@RequestMapping("UserBoard")
 @RequiredArgsConstructor
 @Log4j2
 
@@ -25,24 +25,24 @@ public class BoardController {
 
         return "redirect:vendor/index";
     }
-    @GetMapping("/list")
+    @GetMapping("list")
     public void list(PageRequestDto pageRequestDto, Model model){
         log.info("list============"+pageRequestDto);
         model.addAttribute("result",service.getList(pageRequestDto));
     }
 
-    @GetMapping("/register")
+    @GetMapping("register")
     public void register(){
         log.info("register get");
 
     }
 
-    @GetMapping("/boardWelcome")
+    @GetMapping("boardWelcome")
     public void welcome(){
         log.info("welcome get");
     }
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public String registerPost(BoardDto dto, RedirectAttributes redirectAttributes){
         log.info("dto"+dto);
         Long boardId = service.register(dto);
@@ -50,21 +50,21 @@ public class BoardController {
         return "redirect:list";
     }
 
-    @GetMapping({"/read", "/modify"})
+    @GetMapping({"read", "modify"})
     public void read(Long boardId, @ModelAttribute("requestDto") PageRequestDto requestDto, Model model){
         log.info("ID : "+boardId);
         BoardDto dto = service.read(boardId);
         model.addAttribute("dto", dto);
     }
 
-    @PostMapping("/remove")
+    @PostMapping("remove")
     public String remove(Long boardId, RedirectAttributes redirectAttributes){
         log.info("ID : "+boardId);
         service.remove(boardId);
         redirectAttributes.addFlashAttribute("msg",boardId);
         return "redirect:list";
     }
-    @PostMapping("/modify")
+    @PostMapping("modify")
     public String modify(BoardDto dto, @ModelAttribute("requestDto") PageRequestDto requestDto,RedirectAttributes redirectAttributes){
         log.info("modify in");
         log.info("dto"+dto);
