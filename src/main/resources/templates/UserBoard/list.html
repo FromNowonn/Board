@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{UserBoard/userBoardBasic :: setContent(~{this::content})}">
     <th:block th:fragment="content">
-        <h1 class="mt-4">Board List Page</h1>
+        <h1 class="mt-4">그대들의 흔적</h1>
 
         <table class="table table-hover">
             <thead>
@@ -33,7 +33,7 @@
 
         </li>
         <li class="page-item" style="float: left" >
-            <a class="page-link" th:href="@{register}">도움 요청</a>
+            <a class="page-link" th:href="@{register}">흔적남기기</a>
         </li>
         <ul class="pagination h-100 justify-content-center align-items-center">
             <li class="page-item " th:if="${result.prev}">
